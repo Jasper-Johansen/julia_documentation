@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julia Language Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header><u>Julia Language Documentation</u></header>
+        <ul>
+            <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#Getting_Started">Getting Started</a></li>
+            <li><a class="nav-link" href="#Comments">Comments</a></li>
+            <li><a class="nav-link" href="#Variables_and_Constants">Variables and Constants</a></li>
+            <li><a class="nav-link" href="#Datatypes_and_Operations">Datatypes and Operations</a></li>
+            <li><a class="nav-link" href="#Control_Statements">Control Statements</a></li>
+            <li><a class="nav-link" href="#References">References</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <p>Julia is a high-level, high-performance programming language designed for technical computing. Launched in 2012, it combines the ease of use of scripting languages with the speed of compiled languages, making it ideal for numerical analysis and computational science. Its rich ecosystem supports parallel and distributed computing seamlessly.</p>
+            <p>With an intuitive syntax reminiscent of Python and MATLAB, Julia enables rapid prototyping and efficient execution. It features powerful libraries for data manipulation, visualization, and machine learning, fostering a vibrant community of users and contributors. Julia's ability to handle large datasets and perform complex mathematical computations positions it as a go-to choice for researchers and data scientists alike.</p>
+            <ul>
+                <li>Free and open-source</li>
+                <li>Extensive community support</li>
+                <li>User-defined types are as fast and compact as built-ins
+                <li>No need to vectorize code for performance</li>
+                <li>Designed for parallelism and distributed computation</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Getting_Started">
+            <header>Getting Started</header>
+            <p>The easiest way to learn and experiment with Julia is by starting an interactive session (also known as a read-eval-print loop or "REPL") by double-clicking the Julia executable or running julia from the command line, after installing it from <a href = "https://julialang.org/downloads/">Julia Download Instructions</a>.</p>
+            <code>
+                julia> 1 + 2<br>
+                3
+            </code>       
+        </section>
+        <section class="main-section" id="Comments">
+            <header>Comments</header>
+            <p>Julia syntax is simple and easy to learn, making it an excellent language for beginners in statistical computing.</p>
+            <p>Comments in Julia are created using the hash symbol `#`. Anything following this symbol on the same line is ignored by the interpreter. And for multi-line comments, use "#= ...=#"
+</p>
+            <code># This is a single-line comment<br>
+<br>
+#= <br>
+This is a multi-line comment.<br>
+It can span multiple lines.<br>
+=#</code>
+</section>
+
+        <section class="main-section" id="Variables_and_Constants">
+            <header>Variables and Constants</header>
+    <p>Julia provides an extremely flexible system for naming variables. Variable names are case-sensitive, and have no semantic meaning (that is, the language will not treat variables differently based on their names).</p>
+
+<pre><code>
+julia> y = -3
+-3
+
+julia> Z = "My string"
+"My string"
+
+julia> customary_phrase = "Hello world!"
+"Hello world!"
+
+julia> UniversalDeclarationOfHumanRightsStart = "人人生而自由，在尊严和权利上一律平等。"
+"人人生而自由，在尊严和权利上一律平等。"
+</code>
+</pre>
+     <p>Constants, on the other hand, hold values that do not change during the program's execution.</p>
+     <pre>
+        <code>
+julia> pi
+π = 3.1415926535897...
+            
+julia> pi = 3
+ERROR: cannot assign a value to imported variable Base.pi from module Main</code>
+        </pre>
+            <ul>
+                <li>Variables are mutable</li>
+                <li>Constants are immutable</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="Datatypes_and_Operations">
+            <header>Datatypes and Operations</header>
+            <p>Julia provides a complete collection of basic arithmetic and bitwise operators across all of its numeric primitive types, as well as providing portable, efficient implementations of a comprehensive collection of standard mathematical functions.</p>
+            <table>
+    <tr>
+        <th>Expression</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>+x</td>
+        <td>unary plus</td>
+        <td>the identity operation</td>
+    </tr>
+    <tr>
+        <td>-x</td>
+        <td>unary minus</td>
+        <td>maps values to their additive inverses</td>
+    </tr>
+    <tr>
+        <td>x + y</td>
+        <td>binary plus</td>
+        <td>performs addition</td>
+    </tr>
+    <tr>
+        <td>x - y</td>
+        <td>binary minus</td>
+        <td>performs subtraction</td>
+    </tr>
+    <tr>
+        <td>x * y</td>
+        <td>times</td>
+        <td>performs multiplication</td>
+    </tr>
+    <tr>
+        <td>x / y</td>
+        <td>divide</td>
+        <td>performs division</td>
+    </tr>
+    <tr>
+        <td>x ÷ y</td>
+        <td>integer divide</td>
+        <td>x / y, truncated to an integer</td>
+    </tr>
+    <tr>
+        <td>x \ y</td>
+        <td>inverse divide</td>
+        <td>equivalent to y / x</td>
+    </tr>
+    <tr>
+        <td>x ^ y</td>
+        <td>power</td>
+        <td>raises x to the yth power</td>
+    </tr>
+    <tr>
+        <td>x % y</td>
+        <td>remainder</td>
+        <td>equivalent to rem(x,y)</td>
+    </tr>
+</table>
+<pre><code>
+julia> sum = 5 + 3
+8
+    
+julia> modulo = 5 % 4
+1</code></pre>
+            <p>The above code performs an arithmetic addition operation and modulo operation and assign the values to the variables `sum` and `modulo'.</p>
+        </section>
+
+        <section class="main-section" id="Control_Statements">
+            <header>Control Statements</header>
+            <p>Control statements in Julia allow you to alter the flow of a program based on conditions and loops.</p>
+            <p>The most common control structures include `if`, `else`, `for`, and `while` loops. For example:</p>
+<pre><code>
+julia> for i = 1:2, j = 3:4
+            println((i, j))
+            i = 0
+       end
+(1, 3)
+(1, 4)
+(2, 3)
+(2, 4)</code></pre>
+            <p>In the example above, the code will check if the value of `x` is positive before printing the message.</p>
+        </section>
+        <section class="main-section" id="References">
+            <header>References</header>
+<p>All the data have been collected from <a href="https://docs.julialang.org/en/v1/">Julia Official Documentation</a></p>
+        </section>
+    </main>
+</body>
+</html>
+
